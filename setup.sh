@@ -11,9 +11,6 @@ sudo systemctl start docker
 sudo systemctl enable docker
 docker --version
 
-echo "==== Adding user to Docker group ===="
-sudo usermod -aG docker ec2-user
- 
 echo "==== Installing Docker Compose ===="
 sudo curl -L "https://github.com/docker/compose/releases/download/v2.24.4/docker-compose-linux-x86_64" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
@@ -28,6 +25,10 @@ git clone https://github.com/Shourya-912/devopstaskmanager.git
  
 echo "==== Running Docker Compose ===="
 cd devopstask manager
+
+echo "==== Adding user to Docker group ===="
+sudo usermod -aG docker ec2-user
+exit
 
 echo "=======git pull if changes done========"
 git pull
