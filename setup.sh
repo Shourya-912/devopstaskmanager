@@ -26,13 +26,15 @@ git clone https://github.com/Shourya-912/devopstaskmanager.git
 echo "==== Running Docker Compose ===="
 cd devopstask manager
 
+
+echo "=======git pull if changes done========"
+git pull
+
 echo "==== Adding user to Docker group ===="
 sudo usermod -aG docker ec2-user
 exit
 
-echo "=======git pull if changes done========"
-git pull
-docker-compose down -v
-docker image prune -a -f
-docker-compose up --build
+# docker-compose down -v
+# docker image prune -a -f
+# docker-compose up --build
 
