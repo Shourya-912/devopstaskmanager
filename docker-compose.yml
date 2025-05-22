@@ -1,49 +1,48 @@
-version: '3.8'
+version: "3.8"
  
 services:
   mysql:
     image: mysql:8
-    container_name: mysql
-    healthcheck:
-      test: ["CMD","mysqladmin","ping","-h","localhost"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
+    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: manager
       MYSQL_DATABASE: taskmanager
-    volumes:
-      - mysql_data:/var/lib/mysql
     ports:
       - "3306:3306"
- 
-  mongodb:
-    image: mongo:6
-    ports:
-      - "27017:27017"
     volumes:
-      - mongo_data:/data/db
+      - mysql_data:/var/lib/mysql
  
   flask-api:
     build: ./flask-api
+    restart: always
     ports:
       - "5000:5000"
+    env_file:
+      - ./flask-api/.env
     depends_on:
-      mysql: 
-       condition: service_healthy
-    environment:
-      - FLASK_ENV=development
+      - mysql
+    links:
+      - mysql
  
   node-api:
     build: ./node-task-api
+    restart: always
     ports:
       - "3000:3000"
+    env_file:
+      - ./node-task-api/.env
     depends_on:
       - mongodb
-      - flask-api
-    environment:
-      - NODE_ENV=development
+    links:
+      - mongodb
+ 
+  mongodb:
+    image: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
  
 volumes:
   mysql_data:
-  mongo_data:
+  mongodb_data:
