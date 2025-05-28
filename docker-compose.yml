@@ -24,7 +24,7 @@ services:
     links:
       - mysql
  
-  node-api:
+  node-task-api:
     build: ./node-task-api
     restart: always
     ports:
