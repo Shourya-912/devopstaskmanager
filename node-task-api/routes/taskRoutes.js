@@ -13,7 +13,7 @@ router.post('/createtask', auth, async (req, res) => {
 
     const token = req.headers['authorization'];
     try{
-        const userResponse = await axios.get(`http://localhost:5000/user/${userId}`, {headers: {
+        const userResponse = await axios.get(`http://flask-api:5000/user/${userId}`, {headers: {
             Authorization: token     //pass the token to the flask 
         }
         });
@@ -31,11 +31,11 @@ router.post('/createtask', auth, async (req, res) => {
 
 
 //get all tasks
-router.get('/showusers', auth, async(req,res) => {
+router.get('/showusers_task', auth, async(req,res) => {
     
     const token = req.headers['authorization'];
     try{
-        const userResponse = await axios.get(`http://localhost:5000/showusers`,{headers: {
+        const userResponse = await axios.get(`http://flask-api:5000/showusers`,{headers: {
             Authorization: token     //pass the token to the flask 
         }
         });
@@ -57,7 +57,7 @@ router.get('/user', auth, async (req, res) => {
     const token = req.headers['authorization'];
     const uId = req.userId; //injected from JWT
     try{
-        const userResponse = await axios.get(`http://localhost:5000/user/${uId}`,{headers: {
+        const userResponse = await axios.get(`http://flask-api:5000/user/${uId}`,{headers: {
             Authorization: token //pass the token to the flask
         }
         });
@@ -79,7 +79,7 @@ router.put('/updatetask', auth, async(req,res) => {
     const uId = req.userId; //injected from JWT
     
     try{
-        const userResponse = await axios.get(`http://localhost:5000/user/${uId}`,{headers: {
+        const userResponse = await axios.get(`http://flask-api:5000/user/${uId}`,{headers: {
             Authorization: token //pass the token to the flask
         }
         });
@@ -107,7 +107,7 @@ router.delete('/delete', auth, async (req, res) => {
     const uId = req.userId; //injected from JWT
     
     try{
-        const userResponse = await axios.get(`http://localhost:5000/user/${uId}`,{headers: {
+        const userResponse = await axios.get(`http://flask-api:5000/user/${uId}`,{headers: {
             Authorization: token //pass the token to the flask
         }
         });
