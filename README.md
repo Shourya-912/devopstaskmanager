@@ -108,38 +108,42 @@ docker-compose up --build
     - Build Docker images
     - SCP files to EC2
     - Run containers on remote server
+  
 🖥️ **EC2 Deployment**
   - Hosted on Amazon Linux EC2
   - Flask: http://:5000
   - Node.js: http://:3000
+
 📈 **Monitoring**
    - Integrated with Dynatrace OneAgent installed on EC2.
    - Real-time metrics and logs are sent to Dynatrace.
    - Custom dashboard in progress.
+
 🔜 **Upcoming**
-- [ ] NGINX reverse proxy setup
-- [ ] HTTPS with Let's Encrypt
-- [ ] Final Dynatrace dashboard setup
+   - [ ] NGINX reverse proxy setup
+   - [ ] HTTPS with Let's Encrypt
+   - [ ] Final Dynatrace dashboard setup
 
 ---
 ## 📬 API Endpoints
 
-| Flask (User API)                                                       |
-|----------------------|--------------------------------------------|
-| For User Login       | http://localhost:5000/login            |
-| To Post User         | http://127.0.0.1:5000/users           |
-| To view all Users    | http://localhost:5000/showusers + JWT Token | 
-| To view Single User  | http://127.0.0.1:5000/user/<:id> + JWT Token      |
-| To Update User       | http://127.0.0.1:5000/update/<:id> + JWT Token    |
-| To Delete User       | http://127.0.0.1:5000/users/<:id + JWT Token     |
-|----------------------|--------------------------------------------|
-| Node.js (Task API)                                                |
-|----------------------|--------------------------------------------|
-| To Post Task         | [](http://localhost:5001/tasks/createtask) + JWT Token |
-| To view all Tasks    | [](http://localhost:3000/tasks/showusers) + JWT Token  | 
-| To view User's Task  | [](http://localhost:3000/tasks/user) + JWT Token      |
-| To Update Task       | [](http://localhost:3000/tasks/updatetask) + JWT Token |
-| To Delete Task       | [](http://localhost:3000/tasks/delete) + JWT Token    |
+| Flask (User API)                                                          |
+|----------------------|----------------------------------------------------|
+| For User Login       | http://localhost:5000/login                        |
+| To Post User         | http://127.0.0.1:5000/users                        |
+| To view all Users    | http://localhost:5000/showusers + JWT Token        | 
+| To view Single User  | http://127.0.0.1:5000/user/<:id> + JWT Token       |
+| To Update User       | http://127.0.0.1:5000/update/<:id> + JWT Token     |
+| To Delete User       | http://127.0.0.1:5000/users/<:id + JWT Token       |
+
+
+| Node.js (Task API)                                                        |
+|----------------------|----------------------------------------------------|
+| To Post Task         | http://localhost:5001/tasks/createtask + JWT Token |
+| To view all Tasks    | http://localhost:3000/tasks/showusers + JWT Token  | 
+| To view User's Task  | http://localhost:3000/tasks/user + JWT Token       |
+| To Update Task       | http://localhost:3000/tasks/updatetask + JWT Token |
+| To Delete Task       | http://localhost:3000/tasks/delete + JWT Token     |
 
 ---
 
