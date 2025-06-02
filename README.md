@@ -46,30 +46,36 @@ It demonstrates **DevOps best practices** including containerization, CI/CD, mon
  
 ## 🗂️ Project Structure
 
- 
-**/task-manager-devops/**├──**.github/workflows**| ├──deploy.yml├── **flask-user-api/**| ├── .env| ├── __init__.py│ ├── app.py 
+`
+/task-manager-devops/
+├──.github/workflows
+|   └──deploy.yml
+├── flask-user-api/
+| ├── .env
+| ├── __init__.py
+│ ├── app.py 
 │ ├── auth.py 
 │ ├── config.py
 | ├── db.py 
 | ├── routes.py 
 │ ├── models.py 
 │ └── Dockerfile 
-├── **node-task-api/** 
+├── node-task-api/
 │ ├── app.js 
 │ ├── routes/ 
-|      | ├── taskroutes.js
+|      └── taskroutes.js
 | ├── middleware/ 
-|      | ├── auth.js
+|      └── auth.js
 │ ├── models/ 
-|      | ├── Task.js
+|      └──Task.js
 | ├──.dockerignore
 | ├──.env
 │ └── Dockerfile 
-├── **docker-compose.yml** 
-├── **.env** 
-├── **setup.sh**
-├── **README.md**
- 
+├── docker-compose.yml 
+├── .env 
+├── setup.sh
+├── README.md
+` 
 ---
 
 ## ⚙️ How It Works
