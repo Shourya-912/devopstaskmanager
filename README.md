@@ -121,16 +121,17 @@ docker-compose up --build
 - [ ] HTTPS with Let's Encrypt
 - [ ] Final Dynatrace dashboard setup
 
-📬 **API Endpoints**
+---
+## 📬 API Endpoints
 
 | Flask (User API)                                                       |
 |----------------------|--------------------------------------------|
-| For User Login       | [](http://localhost:5000/login)            |
-| To Post User         | [](http://127.0.0.1:5000/users)            |
-| To view all Users    | [](http://localhost:5000/showusers) + JWT Token | 
-| To view Single User  | [](http://127.0.0.1:5000/user/<:id>) + JWT Token      |
-| To Update User       | [](http://127.0.0.1:5000/update/<:id>) + JWT Token    |
-| To Delete User       | [](http://127.0.0.1:5000/users/<:id>) + JWT Token     |
+| For User Login       | http://localhost:5000/login            |
+| To Post User         | http://127.0.0.1:5000/users           |
+| To view all Users    | http://localhost:5000/showusers + JWT Token | 
+| To view Single User  | http://127.0.0.1:5000/user/<:id> + JWT Token      |
+| To Update User       | http://127.0.0.1:5000/update/<:id> + JWT Token    |
+| To Delete User       | http://127.0.0.1:5000/users/<:id + JWT Token     |
 |----------------------|--------------------------------------------|
 | Node.js (Task API)                                                |
 |----------------------|--------------------------------------------|
@@ -140,13 +141,14 @@ docker-compose up --build
 | To Update Task       | [](http://localhost:3000/tasks/updatetask) + JWT Token |
 | To Delete Task       | [](http://localhost:3000/tasks/delete) + JWT Token    |
 
+---
 
 🔐 Protected by JWT: send token in Authorization: Bearer <token>
 🧑‍💻 **Author**
 👩‍💻 **Shourya**
 Cloud & DevOps Enthusiast | Python & Node.js Developer
 
-📜 **License**
+📜 **License :**
 MIT License
  
 ---
