@@ -46,7 +46,7 @@ It demonstrates **DevOps best practices** including containerization, CI/CD, mon
  
 ## 🗂️ Project Structure
 
-`
+```
 /task-manager-devops/
 ├──.github/workflows
 |   └──deploy.yml
@@ -75,7 +75,7 @@ It demonstrates **DevOps best practices** including containerization, CI/CD, mon
 ├── .env 
 ├── setup.sh
 ├── README.md
-` 
+```
 ---
 
 ## ⚙️ How It Works
