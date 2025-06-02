@@ -1,43 +1,43 @@
-name: CI/CD for Flask & Node APIs
+# name: CI/CD for Flask & Node APIs
  
-on:
-  push:
-    branches: [ main ]
+# on:
+#   push:
+#     branches: [ main ]
  
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
  
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+#     steps:
+#     - name: Checkout code
+#       uses: actions/checkout@v3
  
-    - name: Set up Docker
-      uses: docker/setup-buildx-action@v3
+#     - name: Set up Docker
+#       uses: docker/setup-buildx-action@v3
  
-    - name: Login to DockerHub
-      run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+#     - name: Login to DockerHub
+#       run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
  
-    - name: Build and Push Flask API Image
-      run: |
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/flask-api ./flask-api
-        docker push ${{ secrets.DOCKER_USERNAME }}/flask-api
+#     - name: Build and Push Flask API Image
+#       run: |
+#         docker build -t ${{ secrets.DOCKER_USERNAME }}/flask-api ./flask-api
+#         docker push ${{ secrets.DOCKER_USERNAME }}/flask-api
  
-    - name: Build and Push Node API Image
-      run: |
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/node-task-api ./node-task-api
-        docker push ${{ secrets.DOCKER_USERNAME }}/node-task-api
+#     - name: Build and Push Node API Image
+#       run: |
+#         docker build -t ${{ secrets.DOCKER_USERNAME }}/node-task-api ./node-task-api
+#         docker push ${{ secrets.DOCKER_USERNAME }}/node-task-api
  
-    - name: Deploy to EC2 via SSH
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.EC2_HOST }}
-        username: ec2-user
-        key: ${{ secrets.EC2_SSH_KEY }}
-        script: |
-          cd devopstaskmanager
-          git pull origin main
-          docker-compose down
-          docker pull ${{ secrets.DOCKER_USERNAME }}/flask-api
-          docker pull ${{ secrets.DOCKER_USERNAME }}/node-task-api
-          docker-compose up -d --build
+#     - name: Deploy to EC2 via SSH
+#       uses: appleboy/ssh-action@master
+#       with:
+#         host: ${{ secrets.EC2_HOST }}
+#         username: ec2-user
+#         key: ${{ secrets.EC2_SSH_KEY }}
+#         script: |
+#           cd devopstaskmanager
+#           git pull origin main
+#           docker-compose down
+#           docker pull ${{ secrets.DOCKER_USERNAME }}/flask-api
+#           docker pull ${{ secrets.DOCKER_USERNAME }}/node-task-api
+#           docker-compose up -d --build
