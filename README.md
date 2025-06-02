@@ -1,6 +1,8 @@
 # 🛠️ DevOps Task Manager Project
 
+
 # 🌐 Full Stack Task Manager API with DevOps Integration
+
  
 This project is a **cloud-based Task Management System** built using two backend APIs:
  
@@ -8,10 +10,12 @@ This project is a **cloud-based Task Management System** built using two backend
 - 🟢 **Node.js + MongoDB** for task CRUD operations
  
 It demonstrates **DevOps best practices** including containerization, CI/CD, monitoring, and deployment on AWS EC2.
+
  
 ---
- 
+
 ## 🚀 Features
+
  
 - 🔐 JWT Authentication and Secure API
 - 🧰 User Management via Flask + MySQL
@@ -21,6 +25,7 @@ It demonstrates **DevOps best practices** including containerization, CI/CD, mon
 - 📈 Real-time monitoring with Dynatrace
 - 🌍 EC2-hosted services with public access
 - ⚙️ Planned NGINX reverse proxy with HTTPS support
+
   
 ---
  
@@ -35,18 +40,14 @@ It demonstrates **DevOps best practices** including containerization, CI/CD, mon
 | Cloud           | AWS EC2 (Amazon Linux)   |
 | Monitoring      | Dynatrace                |
 | reverse proxy   | NGINX (planned)          |
+
  
 ---
  
 ## 🗂️ Project Structure
+
  
-**/task-manager-devops/** 
-├──**.github/workflows**
-| ├──deploy.yml
-├── **flask-user-api/** 
-| ├── .env
-| ├── __init__.py
-│ ├── app.py 
+**/task-manager-devops/**├──**.github/workflows**| ├──deploy.yml├── **flask-user-api/**| ├── .env| ├── __init__.py│ ├── app.py 
 │ ├── auth.py 
 │ ├── config.py
 | ├── db.py 
