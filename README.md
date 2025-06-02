@@ -125,6 +125,7 @@ docker-compose up --build
    - [ ] Final Dynatrace dashboard setup
 
 ---
+
 ## 📬 API Endpoints
 
 | API Type       | Method      | Endpoint                                    | Description           | Auth Required |
@@ -140,27 +141,6 @@ docker-compose up --build
 | Node.js (Task) | GET | `http://localhost:3000/tasks/user`          | View user's tasks     | Yes (JWT)      |
 | Node.js (Task) | PUT | `http://localhost:3000/tasks/updatetask`    | Update task           | Yes (JWT)      |
 | Node.js (Task) | DELETE | `http://localhost:3000/tasks/delete`        | Delete task           | Yes (JWT)      |
-
-
----
-
-| Flask (User API)                                                          |
-|----------------------|----------------------------------------------------|
-| For User Login       | http://localhost:5000/login                        |
-| To Post User         | http://localhost:5000/users                        |
-| To view all Users    | http://localhost:5000/showusers + JWT Token        | 
-| To view Single User  | http://localhost:5000/user/<:id> + JWT Token       |
-| To Update User       | http://localhost:5000/update/<:id> + JWT Token     |
-| To Delete User       | http://localhost:5000/users/<:id> + JWT Token       |
-
-
-| Node.js (Task API)                                                        |
-|----------------------|----------------------------------------------------|
-| To Post Task         | http://localhost:5001/tasks/createtask + JWT Token |
-| To view all Tasks    | http://localhost:3000/tasks/showusers + JWT Token  | 
-| To view User's Task  | http://localhost:3000/tasks/user + JWT Token       |
-| To Update Task       | http://localhost:3000/tasks/updatetask + JWT Token |
-| To Delete Task       | http://localhost:3000/tasks/delete + JWT Token     |
 
 ---
 
