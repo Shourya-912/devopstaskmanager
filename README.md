@@ -127,14 +127,31 @@ docker-compose up --build
 ---
 ## 📬 API Endpoints
 
+| API Type       | Method      | Endpoint                                    | Description           | Auth Required |
+|----------------|-------------|---------------------------------------------|------------------------|----------------|
+| Flask (User) | POST | `http://localhost:5000/login`               | Login user            | No             |
+| Flask (User) | POST | `http://localhost:5000/users`               | Create user           | No             |
+| Flask (User) | GET | `http://localhost:5000/showusers`           | View all users        | Yes (JWT)      |
+| Flask (User) | GET | `http://localhost:5000/user/<id>`           | View single user      | Yes (JWT)      |
+| Flask (User) | PUT | `http://localhost:5000/update/<id>`         | Update user           | Yes (JWT)      |
+| Flask (User) | DELETE | `http://localhost:5000/user/<id>`           | Delete user           | Yes (JWT)      |
+| Node.js (Task) | POST | `http://localhost:5001/tasks/createtask`    | Create task           | Yes (JWT)      |
+| Node.js (Task) | GET | `http://localhost:3000/tasks/showusers`     | View all tasks        | Yes (JWT)      |
+| Node.js (Task) | GET | `http://localhost:3000/tasks/user`          | View user's tasks     | Yes (JWT)      |
+| Node.js (Task) | PUT | `http://localhost:3000/tasks/updatetask`    | Update task           | Yes (JWT)      |
+| Node.js (Task) | DELETE | `http://localhost:3000/tasks/delete`        | Delete task           | Yes (JWT)      |
+
+
+---
+
 | Flask (User API)                                                          |
 |----------------------|----------------------------------------------------|
 | For User Login       | http://localhost:5000/login                        |
-| To Post User         | http://127.0.0.1:5000/users                        |
+| To Post User         | http://localhost:5000/users                        |
 | To view all Users    | http://localhost:5000/showusers + JWT Token        | 
-| To view Single User  | http://127.0.0.1:5000/user/<:id> + JWT Token       |
-| To Update User       | http://127.0.0.1:5000/update/<:id> + JWT Token     |
-| To Delete User       | http://127.0.0.1:5000/users/<:id + JWT Token       |
+| To view Single User  | http://localhost:5000/user/<:id> + JWT Token       |
+| To Update User       | http://localhost:5000/update/<:id> + JWT Token     |
+| To Delete User       | http://localhost:5000/users/<:id> + JWT Token       |
 
 
 | Node.js (Task API)                                                        |
