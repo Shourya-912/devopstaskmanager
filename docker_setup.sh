@@ -1,5 +1,12 @@
 #!/bin/bash
+
+# echo "==== Installing Git ===="
+# sudo dnf install -y git
+# git --version
  
+# echo "==== Cloning your repo ===="
+# git clone https://github.com/Shourya-912/devopstaskmanager.git
+
 echo "==== Updating packages ===="
 sudo dnf update -y
  
@@ -16,25 +23,19 @@ sudo curl -L "https://github.com/docker/compose/releases/download/v2.24.4/docker
 sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
  
-echo "==== Installing Git ===="
-sudo dnf install -y git
-git --version
- 
-echo "==== Cloning your repo ===="
-git clone https://github.com/Shourya-912/devopstaskmanager.git
- 
-echo "==== Running Docker Compose ===="
-cd devopstask manager
+# 
+# echo "==== Running Docker Compose ===="
+# cd devopstask manager
 
 
-echo "=======git pull if changes done========"
-git pull
+# echo "=======git pull if changes done========"
+# git pull
 
-echo "==== Adding user to Docker group ===="
-sudo usermod -aG docker ec2-user
-exit
+# echo "==== Adding user to Docker group ===="
+# sudo usermod -aG docker ec2-user
+# exit
 
-# docker-compose down -v
-# docker image prune -a -f
-# docker-compose up --build
+# # docker-compose down -v
+# # docker image prune -a -f
+# # docker-compose up --build
 
