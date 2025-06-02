@@ -74,7 +74,7 @@ It demonstrates **DevOps best practices** including containerization, CI/CD, mon
 ├── docker-compose.yml 
 ├── .env 
 ├── setup.sh
-├── README.md
+└── README.md
 ```
 ---
 
@@ -98,8 +98,10 @@ It demonstrates **DevOps best practices** including containerization, CI/CD, mon
 
 ## 🐳 Docker Setup
 
-```bash
+```
 docker-compose up --build
+```
+
 🔁 **CI/CD with GitHub Actions**
 1. Trigger: On push to main branch.
 2. Steps:
@@ -119,11 +121,24 @@ docker-compose up --build
 - [ ] HTTPS with Let's Encrypt
 - [ ] Final Dynatrace dashboard setup
 
-📬 API Endpoints
-Flask (User API)
-EndpointMethodDescription/registerPOSTRegister a user/loginPOSTLogin + get token
-Node.js (Task API)
-EndpointMethodDescription/tasksGETGet all tasks/tasks/:idPUTUpdate task/tasks/:idDELETEDelete task/tasksPOSTCreate task
+📬 **API Endpoints**
+
+| Flask (User API)                                                       |
+|----------------------|--------------------------------------------|
+| For User Login       | [](http://localhost:5000/login)            |
+| To Post User         | [](http://127.0.0.1:5000/users)            |
+| To view all Users    | [](http://localhost:5000/showusers) + JWT Token | 
+| To view Single User  | [](http://127.0.0.1:5000/user/<:id>) + JWT Token      |
+| To Update User       | [](http://127.0.0.1:5000/update/<:id>) + JWT Token    |
+| To Delete User       | [](http://127.0.0.1:5000/users/<:id>) + JWT Token     |
+|----------------------|--------------------------------------------|
+| Node.js (Task API)                                                |
+|----------------------|--------------------------------------------|
+| To Post Task         | [](http://localhost:5001/tasks/createtask) + JWT Token |
+| To view all Tasks    | [](http://localhost:3000/tasks/showusers) + JWT Token  | 
+| To view User's Task  | [](http://localhost:3000/tasks/user) + JWT Token      |
+| To Update Task       | [](http://localhost:3000/tasks/updatetask) + JWT Token |
+| To Delete Task       | [](http://localhost:3000/tasks/delete) + JWT Token    |
 
 
 🔐 Protected by JWT: send token in Authorization: Bearer <token>
