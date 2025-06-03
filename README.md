@@ -73,7 +73,8 @@ It demonstrates **DevOps best practices** including containerization, CI/CD, mon
 │ └── Dockerfile 
 ├── docker-compose.yml 
 ├── .env 
-├── setup.sh
+├── docker_setup.sh
+├── nginx_setup.sh
 └── README.md
 ```
 ---
@@ -96,11 +97,9 @@ It demonstrates **DevOps best practices** including containerization, CI/CD, mon
  
 --- 
 
-## 🐳 Docker Setup
+## 🐳 Project Setup
 
-```
-docker-compose up --build
-```
+To clone this project and run it, do as instructed in **projectsetup.md**
 
 🔁 **CI/CD with GitHub Actions**
 1. Trigger: On push to main branch.
@@ -119,7 +118,7 @@ docker-compose up --build
    - Real-time metrics and logs are sent to Dynatrace.
    - Custom dashboard in progress.
 
-🔜 **Upcoming**
+🔜 **Final Setup**
    - [ ] NGINX reverse proxy setup
    - [ ] HTTPS with Let's Encrypt
    - [ ] Final Dynatrace dashboard setup
@@ -130,17 +129,17 @@ docker-compose up --build
 
 | API Type       | Method      | Endpoint                                    | Description           | Auth Required |
 |----------------|-------------|---------------------------------------------|------------------------|----------------|
-| Flask (User) | POST | `http://localhost:5000/login`               | Login user            | No             |
-| Flask (User) | POST | `http://localhost:5000/users`               | Create user           | No             |
-| Flask (User) | GET | `http://localhost:5000/showusers`           | View all users        | Yes (JWT)      |
-| Flask (User) | GET | `http://localhost:5000/user/<id>`           | View single user      | Yes (JWT)      |
-| Flask (User) | PUT | `http://localhost:5000/update/<id>`         | Update user           | Yes (JWT)      |
-| Flask (User) | DELETE | `http://localhost:5000/user/<id>`           | Delete user           | Yes (JWT)      |
-| Node.js (Task) | POST | `http://localhost:5001/tasks/createtask`    | Create task           | Yes (JWT)      |
-| Node.js (Task) | GET | `http://localhost:3000/tasks/showusers`     | View all tasks        | Yes (JWT)      |
-| Node.js (Task) | GET | `http://localhost:3000/tasks/user`          | View user's tasks     | Yes (JWT)      |
-| Node.js (Task) | PUT | `http://localhost:3000/tasks/updatetask`    | Update task           | Yes (JWT)      |
-| Node.js (Task) | DELETE | `http://localhost:3000/tasks/delete`        | Delete task           | Yes (JWT)      |
+| Flask (User) | POST | `http://<ec2_ip_address>/api/login`               | Login user            | No             |
+| Flask (User) | POST | `http://<ec2_ip_address>/api/users`               | Create user           | No             |
+| Flask (User) | GET | `http://<ec2_ip_address>/api/showusers`           | View all users        | Yes (JWT)      |
+| Flask (User) | GET | `http://<ec2_ip_address>/api/<id>`           | View single user      | Yes (JWT)      |
+| Flask (User) | PUT | `http://<ec2_ip_address>/api/<id>`         | Update user           | Yes (JWT)      |
+| Flask (User) | DELETE | `http://<ec2_ip_address>/api/<id>`           | Delete user           | Yes (JWT)      |
+| Node.js (Task) | POST | `http://<ec2_ip_address>/task/createtask`    | Create task           | Yes (JWT)      |
+| Node.js (Task) | GET | `http://<ec2_ip_address>/task/showusers`     | View all tasks        | Yes (JWT)      |
+| Node.js (Task) | GET | `http://<ec2_ip_address>/task/user`          | View user's tasks     | Yes (JWT)      |
+| Node.js (Task) | PUT | `http://<ec2_ip_address>/task/updatetask`    | Update task           | Yes (JWT)      |
+| Node.js (Task) | DELETE | `http://<ec2_ip_address>/task/delete`        | Delete task           | Yes (JWT)      |
 
 ---
 
