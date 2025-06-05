@@ -144,8 +144,11 @@ To clone this project and run it, do as instructed in **projectsetup.md**
 ---
 
 🔐 Protected by JWT: send token in Authorization: Bearer <token>
+
 🧑‍💻 **Author**
+
 👩‍💻 **Shourya**
+
 Cloud & DevOps Enthusiast | Python & Node.js Developer
 
 📜 **License :**
