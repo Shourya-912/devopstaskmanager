@@ -13,6 +13,7 @@
 ## 🖥️ Step-by-Step Setup
 
 **1. Login to EC2 Instance**
+
 Open your local terminal and connect to your EC2 instance:
 ```
 ssh -i "C:\Users\SHCHOURA\Downloads\<key_pair_file_name>.pem" ec2-user@<ec2_public_ip_address>
@@ -27,6 +28,7 @@ cd devopstaskmanager
 ```
 
 **3. Run Docker Setup**
+
 Make the script executable and run it:
 ```
 chmod +x docker_setup.sh
@@ -38,6 +40,7 @@ sudo usermod -aG docker ec2-user
 exit  # Logout and re-login to apply changes
 ```
 **4. Run Docker Containers**
+
 Log in again and run:
 ```
 docker-compose up -d  # Runs containers in background
@@ -50,6 +53,7 @@ docker-compose down
 docker image prune -a -f
 ```
 **5. Edit Security Group (AWS Console)**
+
 In your EC2 instance’s security group, add inbound rules:
 
 | Type      | Description           | Auth Required |
@@ -62,6 +66,7 @@ In your EC2 instance’s security group, add inbound rules:
 
 
 **6. NGINX Setup**
+
 Run the NGINX setup script:
 ```
 chmod +x nginx_setup.sh
@@ -70,7 +75,9 @@ sudo systemctl status nginx  # Check if NGINX is running
 ```
 
 To exit status screen: press q.
+
 **7. Configure NGINX for Reverse Proxy**
+
 Edit main config:
 ```
 sudo nano /etc/nginx/nginx.conf
@@ -107,31 +114,38 @@ sudo nano /etc/nginx/conf.d/default.conf
 ```
 
 **8. Test and Restart NGINX**
+
 ```   
 sudo nginx -t  # Test config
 sudo systemctl restart nginx
 ```
 
 **9. API URLs for Testing**
+
 Once everything is running, test APIs using:
 
 `http://<your-ec2-public-ip>/api/...` → Flask API
+
 `http://<your-ec2-public-ip>/task/...` → Node.js Task API
 
 Refer to the project README.md for actual endpoint routes.
 
 **10. (Optional) Enable Dynatrace Monitoring**
+
 Go to Dynatrace > Deployment Status > Add Host.
 Choose Linux and generate a new token.
 Copy the installer command.
+
 Run it on EC2 instance:
 ```
 sudo /bin/sh Dynatrace-OneAgent-Linux.sh
 ```
 (Your actual installer command will be provided by Dynatrace UI.)
+
 Once installed, monitor the host from Dynatrace and create custom dashboards.
 
 ## ✅ You're Done!
+
 Your DevOps project is now:
 - Cloned and running with Docker
 - Exposed via NGINX reverse proxy
