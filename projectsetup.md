@@ -138,7 +138,7 @@ Copy the installer command.
 
 Run it on EC2 instance:
 ```
-sudo /bin/sh Dynatrace-OneAgent-Linux.sh
+sudo /bin/sh <Dynatrace-OneAgent-Linux file_name>.sh
 ```
 (Your actual installer command will be provided by Dynatrace UI.)
 
